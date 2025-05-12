@@ -34,68 +34,58 @@ void yyerror(const char *s) {
 
 %%
 
-program
-    : month_decl setup_block stmt_list report_stmt
-      { printf("Syntax OK\n"); }
-    ;
+program: month_decl setup_block stmt_list report_stmt
+         { printf("Syntax OK\n"); }
+         ;
 
-month_decl
-    : FOR MONTH NUMBER '/' NUMBER
-    ;
+month_decl: FOR MONTH NUMBER '/' NUMBER
+            ;
 
-setup_block
-    : SETUP LBRACE setup_lines RBRACE
-    ;
+setup_block: SETUP LBRACE setup_lines RBRACE
+             ;
 
-setup_lines
-    : /* vazio */
-    | setup_lines setup_line
-    ;
+setup_lines: /* vazio */
+           | setup_lines setup_line
+           ;
 
-setup_line
-    : VAR IDENTIFIER EQUALS expr
-    | SET BUDGET IDENTIFIER TO expr
-    | ADD INCOME IDENTIFIER expr
-    ;
+setup_line: VAR IDENTIFIER EQUALS expr
+          | SET BUDGET IDENTIFIER TO expr
+          | ADD INCOME IDENTIFIER expr
+          ;
 
-stmt_list
-    : /* vazio */
-    | stmt_list statement
-    ;
+stmt_list: /* vazio */
+         | stmt_list statement
+        ;
 
-statement
-    : VAR IDENTIFIER EQUALS expr
-    | SPEND expr ON IDENTIFIER recur_clause_opt
-    ;
+statement: VAR IDENTIFIER EQUALS expr
+         | SPEND expr ON IDENTIFIER recur_clause_opt
+         ;
 
-report_stmt
-    : REPORT MONTH NUMBER '/' NUMBER
-    ;
+report_stmt: REPORT MONTH NUMBER '/' NUMBER
+           ;
 
 /* recorrência opcional: every day for <expr> days */
-recur_clause_opt
-    : /* vazio */               
-      { $$ = 0; }
-    | EVERY DAY FOR expr DAYS  
-      { $$ = $4; }
-    ;
+recur_clause_opt: /* vazio */               
+                { $$ = 0; }
+                | EVERY DAY FOR expr DAYS  
+                { $$ = $4; }
+                ;
 
 /* EXPRESSÕES ARITMÉTICAS — com ações explícitas em todas as alternativas */
-expr
-    : expr '+' expr      
-      { $$ = 0; }
+expr: expr '+' expr      
+    { $$ = 0; }
     | expr '-' expr      
-      { $$ = 0; }
+    { $$ = 0; }
     | expr '*' expr      
-      { $$ = 0; }
+    { $$ = 0; }
     | expr '/' expr      
-      { $$ = 0; }
+    { $$ = 0; }
     | LPAREN expr RPAREN 
-      { $$ = $2; }
+    { $$ = $2; }
     | NUMBER             
-      { $$ = $1; }
+    { $$ = $1; }
     | IDENTIFIER         
-      { $$ = 0; }       /* dummy */
+    { $$ = 0; }       /* dummy */
     ;
 
 %%

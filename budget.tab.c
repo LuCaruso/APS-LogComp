@@ -534,9 +534,9 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    38,    38,    43,    47,    51,    52,    56,    57,    58,
-      62,    63,    67,    68,    72,    78,    79,    85,    87,    89,
-      91,    93,    95,    97
+       0,    37,    37,    41,    44,    47,    48,    51,    52,    53,
+      56,    57,    60,    61,    64,    69,    70,    75,    77,    79,
+      81,    83,    85,    87
 };
 #endif
 
@@ -1133,62 +1133,62 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* program: month_decl setup_block stmt_list report_stmt  */
-#line 39 "budget.y"
-      { printf("Syntax OK\n"); }
+#line 38 "budget.y"
+         { printf("Syntax OK\n"); }
 #line 1139 "budget.tab.c"
     break;
 
   case 15: /* recur_clause_opt: %empty  */
-#line 78 "budget.y"
-      { (yyval.num) = 0; }
+#line 69 "budget.y"
+                { (yyval.num) = 0; }
 #line 1145 "budget.tab.c"
     break;
 
   case 16: /* recur_clause_opt: EVERY DAY FOR expr DAYS  */
-#line 80 "budget.y"
-      { (yyval.num) = (yyvsp[-1].num); }
+#line 71 "budget.y"
+                { (yyval.num) = (yyvsp[-1].num); }
 #line 1151 "budget.tab.c"
     break;
 
   case 17: /* expr: expr '+' expr  */
-#line 86 "budget.y"
-      { (yyval.num) = 0; }
+#line 76 "budget.y"
+    { (yyval.num) = 0; }
 #line 1157 "budget.tab.c"
     break;
 
   case 18: /* expr: expr '-' expr  */
-#line 88 "budget.y"
-      { (yyval.num) = 0; }
+#line 78 "budget.y"
+    { (yyval.num) = 0; }
 #line 1163 "budget.tab.c"
     break;
 
   case 19: /* expr: expr '*' expr  */
-#line 90 "budget.y"
-      { (yyval.num) = 0; }
+#line 80 "budget.y"
+    { (yyval.num) = 0; }
 #line 1169 "budget.tab.c"
     break;
 
   case 20: /* expr: expr '/' expr  */
-#line 92 "budget.y"
-      { (yyval.num) = 0; }
+#line 82 "budget.y"
+    { (yyval.num) = 0; }
 #line 1175 "budget.tab.c"
     break;
 
   case 21: /* expr: LPAREN expr RPAREN  */
-#line 94 "budget.y"
-      { (yyval.num) = (yyvsp[-1].num); }
+#line 84 "budget.y"
+    { (yyval.num) = (yyvsp[-1].num); }
 #line 1181 "budget.tab.c"
     break;
 
   case 22: /* expr: NUMBER  */
-#line 96 "budget.y"
-      { (yyval.num) = (yyvsp[0].num); }
+#line 86 "budget.y"
+    { (yyval.num) = (yyvsp[0].num); }
 #line 1187 "budget.tab.c"
     break;
 
   case 23: /* expr: IDENTIFIER  */
-#line 98 "budget.y"
-      { (yyval.num) = 0; }
+#line 88 "budget.y"
+    { (yyval.num) = 0; }
 #line 1193 "budget.tab.c"
     break;
 
@@ -1386,7 +1386,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 101 "budget.y"
+#line 91 "budget.y"
 
 
 int main(void) {
