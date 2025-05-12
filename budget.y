@@ -55,7 +55,7 @@ setup_line: VAR IDENTIFIER EQUALS expr
 
 stmt_list: /* vazio */
          | stmt_list statement
-        ;
+         ;
 
 statement: VAR IDENTIFIER EQUALS expr
          | SPEND expr ON IDENTIFIER recur_clause_opt
