@@ -1,0 +1,11 @@
+for month 06/2025
+
+setup {
+  var x = (10 + 20) * 2
+  set budget fun to x / 2 + 5
+  add income salary 3000
+}
+
+spend (x / 2) on fun
+
+report month 06/2025

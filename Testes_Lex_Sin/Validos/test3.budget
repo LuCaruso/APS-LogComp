@@ -1,0 +1,12 @@
+for month 03/2025
+
+setup {
+  var daily = 20
+  var days_month  = 31
+  set budget transport to daily * days_month
+  add income salary 2500
+}
+
+spend daily on transport every day for days_month days
+
+report month 03/2025

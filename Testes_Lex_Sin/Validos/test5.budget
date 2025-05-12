@@ -1,0 +1,14 @@
+for month 05/2025
+
+setup {
+  var base       = 100
+  var multiplier = 3
+  set budget events to base * multiplier + 50
+  add income job       2000
+  add income freelance 500
+}
+
+spend 150 on events
+spend 10 on coffee every day for 5 days
+
+report month 05/2025

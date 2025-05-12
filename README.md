@@ -65,27 +65,27 @@ Evitar digitar manualmente cada lançamento em planilhas. Centralizando toda a l
 ## EBNF
 
 ```ebnf
-<program>        ::= <month-decl> <NL> <setup-block> <NL> { <statement> <NL> } ;
+<program>        ::= <month-decl> <setup-block> { <statement> } ;
 
-<month-decl>     ::= "for" "month" <month-num> "/" <year> ;
+<month-decl>     ::= "for" "month" <number> "/" <number> ;
 
-<setup-block>    ::= "setup" "{" <NL> { <var-stmt> <NL> | <budget-stmt> <NL> | <income-stmt> <NL> }"}" ;
+<setup-block>    ::= "setup" "{" { <var-stmt> | <budget-stmt> | <income-stmt> } "}" ;
 
-<statement>      ::= <var-stmt> | <expense-stmt> | <report-stmt> | <comment>;
+<statement>      ::= <var-stmt>
+                   | <expense-stmt>
+                   | <report-stmt> ;
 
 <var-stmt>       ::= "var" <identifier> "=" <expr> ;
 
-<budget-stmt>    ::= "set" "budget" <category> "to" <expr> ;
+<budget-stmt>    ::= "set" "budget" <identifier> "to" <expr> ;
 
 <income-stmt>    ::= "add" "income" <identifier> <expr> ;
 
-<expense-stmt>   ::= "spend" <expr> "on" <category> [ <recur-clause> ] ;
+<expense-stmt>   ::= "spend" <expr> "on" <identifier> [ <recur-clause> ] ;
 
-<recur-clause>   ::= "every" "day" "for" <number> "days" ;
+<recur-clause>   ::= "every" "day" "for" <expr> "days" ;
 
-<report-stmt>    ::= "report" "month" <month-num> "/" <year> ;
-
-<comment>        ::= "#" { <any-char> } ;
+<report-stmt>    ::= "report" "month" <number> "/" <number> ;
 
 /* EXPRESSÕES ARITMÉTICAS */
 <expr>           ::= <term> { ("+" | "-") <term> } ;
@@ -93,15 +93,10 @@ Evitar digitar manualmente cada lançamento em planilhas. Centralizando toda a l
 <factor>         ::= <number> | <identifier> | "(" <expr> ")" ;
 
 /* IDENTIFICADORES */
-<category>       ::= <identifier> ;
 <identifier>     ::= <letter> { <letter> | <digit> | "_" } ;
 
 /* LITERAIS NUMÉRICOS */
 <number>         ::= <digit> { <digit> } ;
-
-/* DATA DO MÊS */
-<year>           ::= <digit><digit><digit><digit> ;
-<month-num>      ::= <digit><digit> ;
 
 /* CARACTERES */
 <digit>          ::= "0" … "9" ;

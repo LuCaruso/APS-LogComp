@@ -1,0 +1,8 @@
+for month 02/2025
+
+setup {
+  set budget rent to 1200
+  add income salary 3000
+}
+
+report month 02/2025

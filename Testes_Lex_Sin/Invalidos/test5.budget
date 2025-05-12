@@ -1,0 +1,9 @@
+for month 06/2025
+
+setup {
+  var x = 10
+}
+
+spend 10 food
+
+report month 06/2025

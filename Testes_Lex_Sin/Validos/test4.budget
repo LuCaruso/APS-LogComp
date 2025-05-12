@@ -1,0 +1,12 @@
+for month 04/2025
+
+setup {
+  set budget food to 500
+  add income salary 2000
+}
+
+spend 100 on food
+spend 50  on food
+spend 25  on food
+
+report month 04/2025

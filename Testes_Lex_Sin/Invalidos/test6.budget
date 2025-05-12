@@ -1,0 +1,9 @@
+for month 06/2025
+
+setup {
+  set budget food to 100
+}
+
+spend 5 on food every day for 10
+
+report month 06/2025
