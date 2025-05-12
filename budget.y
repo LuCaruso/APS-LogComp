@@ -65,27 +65,18 @@ report_stmt: REPORT MONTH NUMBER '/' NUMBER
            ;
 
 /* recorrência opcional: every day for <expr> days */
-recur_clause_opt: /* vazio */               
-                { $$ = 0; }
-                | EVERY DAY FOR expr DAYS  
-                { $$ = $4; }
+recur_clause_opt: /* vazio */ { $$ = 0; }
+                | EVERY DAY FOR expr DAYS { $$ = $4; }
                 ;
 
 /* EXPRESSÕES ARITMÉTICAS — com ações explícitas em todas as alternativas */
-expr: expr '+' expr      
-    { $$ = 0; }
-    | expr '-' expr      
-    { $$ = 0; }
-    | expr '*' expr      
-    { $$ = 0; }
-    | expr '/' expr      
-    { $$ = 0; }
-    | LPAREN expr RPAREN 
-    { $$ = $2; }
-    | NUMBER             
-    { $$ = $1; }
-    | IDENTIFIER         
-    { $$ = 0; }       /* dummy */
+expr: expr '+' expr { $$ = 0; }
+    | expr '-' expr { $$ = 0; }
+    | expr '*' expr { $$ = 0; }
+    | expr '/' expr { $$ = 0; }
+    | LPAREN expr RPAREN { $$ = $2; }
+    | NUMBER { $$ = $1; }
+    | IDENTIFIER { $$ = 0; }       /* dummy */
     ;
 
 %%
