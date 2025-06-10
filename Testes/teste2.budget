@@ -1,0 +1,14 @@
+# Uso de variáveis e expressões
+# Mês de controle: agosto de 2025
+for month 08/2025
+
+setup {
+  var daily = 50
+  var days_month = 31
+  set budget food to daily * days_month   # 1550
+  add income salary 2000
+}
+
+spend daily on food every day for days_month days
+
+report month 08/2025

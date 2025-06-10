@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><head><meta charset='utf-8'>
+<title>Expense Report 06/2025</title>
+<style>
+    body { background: #f0f0f0; font-family: Arial, sans-serif; color: #333; margin: 0; padding: 0; }
+    .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 20px;
+                 box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 12px; }
+    h1 { text-align: center; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: separate; border-spacing: 0;
+            border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+    th { background: #223c53; color: #fff; padding: 12px; text-align: left; }
+    td { padding: 12px; border-bottom: 1px solid #ddd; }
+    tr:nth-child(even) td:not(.ok):not(.over) { background: #f9f9f9; }
+    td.ok   { background: #d4edda !important; color: #155724; }
+    td.over { background: #f8d7da !important; color: #721c24; }
+    .summary h2, .alerts h2 { text-align: left; margin-top: 40px; }
+    .summary p { line-height: 1.6; margin: 5px 0; }
+    .alerts ul { list-style: none; padding: 0; }
+    .alerts li { margin: 5px 0; padding: 10px; border-radius: 4px;
+                  background: #f8d7da; color: #721c24; }
+</style>
+</head><body>
+<div class='container'>
+    <h1>Expense Report for 06/2025</h1>
+    <table>
+        <tr><th>Category</th><th>Spent</th><th>Budget</th><th>Status</th></tr>
+        <tr><td>food</td><td align='right'>100</td><td align='right'>500</td><td class='ok'>OK</td></tr>
+        <tr><td>party</td><td align='right'>3100</td><td align='right'>1000</td><td class='over'>OVER by 2100</td></tr>
+        <tr><td>transport</td><td align='right'>1250</td><td align='right'>600</td><td class='over'>OVER by 650</td></tr>
+    </table>
+    <div class='summary'>
+        <h2>Summary</h2>
+        <p><strong>Total Income:</strong>   4500</p>
+        <p><strong>Total Expense:</strong>  4450</p>
+        <p><strong>Net Balance:</strong>    50</p>
+    </div>
+    <div class='alerts'>
+        <h2>Alerts</h2>
+        <ul>
+            <li>party exceeded budget by 2100</li>
+            <li>transport exceeded budget by 650</li>
+        </ul>
+    </div>
+</div>
+</body></html>

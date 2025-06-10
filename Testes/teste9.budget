@@ -1,0 +1,11 @@
+# Sem report month no final (Não suportado)
+# Deve dar erro de sintaxe
+# Mês de controle: novembro de 2025
+for month 11/2025
+
+setup {
+  set budget savings to 1000
+  add income salary   1500
+}
+
+spend 500 on savings

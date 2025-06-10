@@ -1,0 +1,17 @@
+# Mistura de recorrência e pontual, OK e OVER
+# Mês de controle: outubro de 2025
+for month 10/2025
+
+setup {
+  var rate = 10
+  var d    = 30
+  set budget transport     to rate * d    # 300
+  set budget entertainment to 100
+  add income salary        2000
+}
+
+spend 5 on transport every day for d days
+spend 120 on entertainment
+spend 50 on entertainment
+
+report month 10/2025

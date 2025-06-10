@@ -1,0 +1,14 @@
+# Declaração de budget fora do setup (Não suportado)
+# Deve dar erro de sintaxe
+# Mês de controle: julho de 2025
+for month 07/2025
+
+setup {
+    var initial_money = 5000
+    add income salary initial_money
+}
+
+set budget car_payment to 300
+
+spend 1200 on rent
+report month 07/2025

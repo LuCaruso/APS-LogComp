@@ -1,0 +1,14 @@
+# Múltiplas receitas e despesas pontuais
+# Mês de controle: setembro de 2025
+for month 09/2025
+
+setup {
+  set budget misc to 500
+  add income salary    2500
+  add income freelance  800
+}
+
+spend 300 on misc
+spend 100 on misc
+
+report month 09/2025

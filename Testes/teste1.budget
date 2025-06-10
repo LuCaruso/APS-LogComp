@@ -1,0 +1,12 @@
+# Básico, sem variáveis nem recorrência
+# Mês de controle: julho de 2025
+for month 07/2025
+
+setup {
+  set budget rent to 1200
+  add income salary 3000
+}
+
+spend 1200 on rent
+
+report month 07/2025

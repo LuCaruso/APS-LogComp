@@ -65,15 +65,14 @@ Evitar digitar manualmente cada lançamento em planilhas. Centralizando toda a l
 ## EBNF
 
 ```ebnf
-<program>        ::= <month-decl> <setup-block> { <statement> } ;
+<program>        ::= <month-decl> <setup-block> { <statement-body> } <report-stmt> ;
 
 <month-decl>     ::= "for" "month" <number> "/" <number> ;
 
 <setup-block>    ::= "setup" "{" { <var-stmt> | <budget-stmt> | <income-stmt> } "}" ;
 
-<statement>      ::= <var-stmt>
-                   | <expense-stmt>
-                   | <report-stmt> ;
+<statement-body> ::= <var-stmt>
+                   | <expense-stmt> ;
 
 <var-stmt>       ::= "var" <identifier> "=" <expr> ;
 
@@ -98,14 +97,13 @@ Evitar digitar manualmente cada lançamento em planilhas. Centralizando toda a l
 /* LITERAIS NUMÉRICOS */
 <number>         ::= <digit> { <digit> } ;
 
-/* CARACTERES */
+/* CARACTERES - Apenas para definição, não aparecem em regras de produção */
 <digit>          ::= "0" … "9" ;
 <letter>         ::= "A" … "Z" | "a" … "z" ;
 <any-char>       ::= <letter> | <digit> | <symbol> | <whitespace> ;
-<symbol>         ::= "(" | ")" | "{" | "}" | "," | "." | "-" | "+" | "*" | "/" | "=" | "\"" ;
+<symbol>         ::= "(" | ")" | "{" | "}" | "-" | "+" | "*" | "/" | "=" | "\"" ;
 <whitespace>     ::= " " | "\t" ;
 <NL>             ::= "\n" ;
-
 ```
 
 ## Exemplo de Script
@@ -130,17 +128,19 @@ spend 100       on food                                      # pontual
 report month 06/2025
 ```
 ## Exemplo de Saída
-```
-Expense Report for 06/2025
-────────────────────────────────────────
-Category      Spent    Budget    Status
-transport     1250     600       OVER by 650
-food          100      500       OK
+![relatório.html](ExemploOutput.png)
 
-Total Income:   3500
-Total Expense:  1350
-Net Balance:    2150
+A saída é um relatório HTML que resume o mês, mostrando receitas, despesas, budgets e alertas de estouro. Essa é visualização no navegador do html gerado.
 
-Alerts:
-  • transport exceeded budget by 650
+## Como rodar o interpretador
+
+O interpretador é um script Python chamado `budget_vm.py`.
+
+### Execute com:
+```sh
+python3 budget_vm.py Testes/teste.budget > relatório.html
 ```
+
+Isso irá gerar um relatório no arquivo relatório.html com o resultado do script Budget#.
+
+Você pode editar o arquivo de entrada (Testes/teste.budget) para testar outros cenários de despesas, receitas e budgets.

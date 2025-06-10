@@ -1,0 +1,10 @@
+# Sem despesas (somente setup e report)
+# Mês de controle: novembro de 2025
+for month 11/2025
+
+setup {
+  set budget savings to 1000
+  add income salary   1500
+}
+
+report month 11/2025

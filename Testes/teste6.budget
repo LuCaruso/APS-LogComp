@@ -1,0 +1,26 @@
+# Mais de um report (Não suportado)
+# Deve dar erro de sintaxe
+# Mês de controle: julho de 2025
+for month 07/2025
+
+setup {
+  set budget rent to 1200
+  add income salary 3000
+}
+
+spend 1200 on rent
+
+report month 07/2025
+
+for month 08/2025
+
+setup {
+  var daily = 50
+  var days_month  = 31
+  set budget food to daily * days_month   # 1550
+  add income salary 2000
+}
+
+spend daily on food every day for days_month days
+
+report month 08/2025

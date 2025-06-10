@@ -1,0 +1,22 @@
+# Mês de controle: junho de 2025
+for month 06/2025
+
+setup {
+  var dailyUber   = 20
+  var daysInMonth = 30
+  set budget transport to dailyUber * daysInMonth   # 20×30 = 600
+  set budget party to 1000
+  set budget food to 300 + 200                # 500
+  add income salary 4000 - 500                   # 3500
+  add income bonus 1000
+}
+
+# Despesas
+spend dailyUber on transport every day for daysInMonth days  # 20×30 = 600
+spend 650 on transport                                 # pontual, 650 > 600
+spend 100 on food                                      # pontual
+spend 3000 on party                                     # pontual
+spend 100 on party                                     # pontual
+
+# Relatório
+report month 06/2025
